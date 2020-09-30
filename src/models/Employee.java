@@ -11,7 +11,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-
 @Table(name = "employees")
 @NamedQueries({
     @NamedQuery(
@@ -31,7 +30,6 @@ import javax.persistence.Table;
             query = "SELECT e FROM Employee AS e WHERE e.delete_flag = 0 AND e.code = :code AND e.password = :pass"
             )
 })
-
 @Entity
 public class Employee {
     @Id
@@ -124,6 +122,3 @@ public class Employee {
         this.delete_flag = delete_flag;
     }
 }
-
-
-
