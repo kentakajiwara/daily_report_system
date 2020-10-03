@@ -15,7 +15,13 @@
          <div id="header">
             <h1>日報管理システム</h1>
          </div>
-         <div id="content">
+         <c:if test="${sessionScope.login_employee != null}">
+            <div id="employee_name">
+                <c:out value="${sessionScope.login_employee.name} }" />&nbsp;さん&nbsp;&nbsp;&nbsp;
+                <a href="<c:url value='/reports/index' />">ログアウト</a>
+            </div>
+        </c:if>
+          <div id="content">
              ${param.content}
           </div>
           <div id="footer">
