@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import models.Employee;
+
 /**
  * Servlet Filter implementation class LoginFilter
  */
@@ -38,14 +39,13 @@ public class LoginFilter implements Filter {
      * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
      */
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        // TODO Auto-generated method stub
-        // place your code here
         String context_path = ((HttpServletRequest)request).getContextPath();
         String servlet_path = ((HttpServletRequest)request).getServletPath();
 
-        if(!servlet_path.matches("/css.*")){
+        if(!servlet_path.matches("/css.*")) {       // CSSフォルダ内は認証処理から除外する
             HttpSession session = ((HttpServletRequest)request).getSession();
 
+            // セッションスコープに保存された従業員（ログインユーザ）情報を取得
             Employee e = (Employee)session.getAttribute("login_employee");
 
             if(!servlet_path.equals("/login")) {        // ログイン画面以外について
@@ -71,14 +71,8 @@ public class LoginFilter implements Filter {
             }
         }
 
-
-
-
-        // pass the request along the filter chain
-
-    chain.doFilter(request, response);
-}
-
+        chain.doFilter(request, response);
+    }
 
     /**
      * @see Filter#init(FilterConfig)
