@@ -108,12 +108,13 @@ tr.row0 {
 select {
     height: 30px;
 }
-#header_men {
-    width:57%;
-    padding-top:17px;
-    padding-left:3%;
-    desplay:inline-block；
+#header_menu {
+    width: 57%;
+    padding-top: 17px;
+    padding-left: 3%;
+    display: inline-block;
 }
+
 #employee_name {
     color: #cccccc;
     width: 36%;
@@ -148,5 +149,8 @@ table#report_list .report_title {
 
 table#report_list .report_action {
     width: 13%;
+}
+pre {
+    font-family: "Hiragino Kaku Gothic Pro",Meiryo,"MS PGothic",Helvetica,Arial,sans-serif;
 }
 }
